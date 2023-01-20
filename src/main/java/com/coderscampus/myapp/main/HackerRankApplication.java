@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.junit.jupiter.api.Test;
+
 public class HackerRankApplication {
 		
 	public static void main (String [] args) {
@@ -12,6 +14,8 @@ public class HackerRankApplication {
 			arr.add(i);
 		}
 		miniMaxSum(arr);
+		String sampleTime = "07:05:45PM";
+		timeConversion(sampleTime);
 	}
 	//min max problem 1.20.23
 	public static void miniMaxSum(List<Integer> arr) {
@@ -23,4 +27,31 @@ public class HackerRankApplication {
 		}
 		System.out.println((sum - max )+ " " + (sum-min));
 	}
+	
+	//timeConversion
+	public static String timeConversion(String s) {
+//		char test = s.charAt(8);
+//		System.out.println(test);
+//		String convertedTime = "test";
+//		return convertedTime;
+		//Integer convertedTime = Integer.parseInt(s);
+		Integer hour = Integer.parseInt(s.substring(0, 2));
+		String time = s.substring(8);
+		Boolean night = time.equalsIgnoreCase("pm");
+		if(night) {
+			if(hour != 12) {
+				hour += 12;
+				System.out.println(hour + s.substring(2,8));
+				return "" + hour + s.substring(2,8);
+			}
+		}else {
+			if(hour == 12) {
+				System.out.println("00" + s.substring(2,8));
+				return "00" + s.substring(2,8);
+			}
+		}
+		System.out.println(s.substring(0,8));
+		return s.substring(0,8);
+	}
+	
 }
