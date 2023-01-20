@@ -1,10 +1,9 @@
 package com.coderscampus.myapp.main;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-
-import org.junit.jupiter.api.Test;
 
 public class HackerRankApplication {
 		
@@ -16,6 +15,10 @@ public class HackerRankApplication {
 		miniMaxSum(arr);
 		String sampleTime = "07:05:45PM";
 		timeConversion(sampleTime);
+		
+		List<String> strings = new ArrayList<>(Arrays.asList("4", "aba", "baba", "aba", "xzxb"));
+		List<String> queries = new ArrayList<>(Arrays.asList("3", "aba", "xzxb", "ab"));
+		matchingStrings(strings, queries);
 	}
 	//min max problem 1.20.23
 	public static void miniMaxSum(List<Integer> arr) {
@@ -47,6 +50,16 @@ public class HackerRankApplication {
 		}
 		System.out.println(s.substring(0,8));
 		return s.substring(0,8);
+	}
+	
+	//sparse arrays 1.20.23
+	public static List<Integer> matchingStrings(List<String> strings, List<String> queries){
+		List<Integer> result = new ArrayList<>();
+		queries.forEach(e->{int count = (int) strings.stream().filter(s->s.equals(e)).count();
+		result.add(count);
+		});
+		System.out.println(result);
+		return result;
 	}
 	
 }
