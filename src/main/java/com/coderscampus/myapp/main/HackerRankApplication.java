@@ -28,13 +28,8 @@ public class HackerRankApplication {
 		System.out.println((sum - max )+ " " + (sum-min));
 	}
 	
-	//timeConversion
+	//timeConversion 1.20.23
 	public static String timeConversion(String s) {
-//		char test = s.charAt(8);
-//		System.out.println(test);
-//		String convertedTime = "test";
-//		return convertedTime;
-		//Integer convertedTime = Integer.parseInt(s);
 		Integer hour = Integer.parseInt(s.substring(0, 2));
 		String time = s.substring(8);
 		Boolean night = time.equalsIgnoreCase("pm");
