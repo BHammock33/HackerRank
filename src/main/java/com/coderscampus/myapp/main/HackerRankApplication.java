@@ -11,6 +11,8 @@ public class HackerRankApplication {
 		addInputsMiniMax();
 		addInputsTimeConversion();
 		addInputsMatchingStrings();
+		List<Integer> a = new ArrayList<>(Arrays.asList(1,1,2));
+		lonelyInteger(a);
 	}
 	private static void addInputsMatchingStrings() {
 		List<String> strings = new ArrayList<>(Arrays.asList("4", "aba", "baba", "aba", "xzxb"));
@@ -68,6 +70,17 @@ public class HackerRankApplication {
 		});
 		System.out.println(result);
 		return result;
+	}
+	
+	//lonely integer 1.24.23
+	public static Integer lonelyInteger(List<Integer> a) {
+		for(Integer i:a) {
+			if(Collections.frequency(a, i) == 1) {
+				System.out.println(i);
+				return i;
+			}
+		}
+		return -1;
 	}
 	
 }
