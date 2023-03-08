@@ -13,6 +13,9 @@ public class HackerRankApplication {
 		addInputsMatchingStrings();
 		List<Integer> a = new ArrayList<>(Arrays.asList(1,1,2));
 		lonelyInteger(a);
+		addInputsDiagonalDifference();
+		
+		
 	}
 	private static void addInputsMatchingStrings() {
 		List<String> strings = new ArrayList<>(Arrays.asList("4", "aba", "baba", "aba", "xzxb"));
@@ -30,6 +33,21 @@ public class HackerRankApplication {
 		}
 		miniMaxSum(arr);
 	}
+	private static void addInputsDiagonalDifference() {
+		List<Integer> row1 = new ArrayList<>(Arrays.asList(3));
+		List<Integer> row2 = new ArrayList<>(Arrays.asList(11,2,4));
+		List<Integer> row3 = new ArrayList<>(Arrays.asList(4,5,6));
+		List<Integer> row4 = new ArrayList<>(Arrays.asList(10, 8, -12));
+		List<List<Integer>> inputMatrix = new ArrayList<>();
+		inputMatrix.add(row1);
+		inputMatrix.add(row2);
+		inputMatrix.add(row3);
+		inputMatrix.add(row4);
+		System.out.println(inputMatrix.size());
+		System.out.println(diagonalDifference(inputMatrix));
+	}
+	
+	
 	//min max problem 1.20.23
 	public static void miniMaxSum(List<Integer> arr) {
 		long min = Collections.min(arr);
@@ -81,6 +99,25 @@ public class HackerRankApplication {
 			}
 		}
 		return -1;
+	}
+	
+	//flippingBits 1.26.23
+	public static long flippingBits(long n) {
+		return (((long)Math.pow(2, 32))-1 -n);
+	}
+	
+	//diagonal Difference
+	public static int diagonalDifference(List<List<Integer>> arr) {
+		int sum1 = 0;
+		int sum2= 0;
+		
+		int x = arr.size();
+		
+		for(int i=0; i<x; i++) {
+			sum1 += arr.get(i).get(i);
+			sum2 += arr.get(i).get(x-1-i);
+		}
+		return Math.abs(sum1 - sum2);
 	}
 	
 }
