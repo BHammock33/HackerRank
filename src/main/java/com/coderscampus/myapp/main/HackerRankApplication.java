@@ -5,6 +5,9 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import com.coderscampus.myapp.domain.LinkedList;
+import com.coderscampus.myapp.domain.Node;
+
 public class HackerRankApplication {
 		
 	public static void main (String [] args) {
@@ -119,5 +122,113 @@ public class HackerRankApplication {
 		}
 		return Math.abs(sum1 - sum2);
 	}
+	//node swapping 
+	public static void swapNodes(LinkedList list, String data1,	String data2) {
+		System.out.println("Swapping " + data1 + " with " + data2);
+		
+		Node node1Prev = null;
+		Node node2Prev = null;
+		Node node1 = list.head;
+		Node node2 = list.head;
+		
+		if(data1 == data2) {
+			System.out.println("Elements are the same no need for swapping");
+			return;
+		}
+		
+		while(node1 != null) {
+			if(node1.data == data1) {
+				break;
+			}
+			node1Prev = node1;
+			node1 = node1.getNextNode();
+		}
+		while(node2 != null) {
+			if(node2.data == data2) {
+				break;
+			}
+			node2Prev = node2;
+			node2 = node2.getNextNode();
+		}
+		if(node1 == null || node2 == null) {
+			System.out.println("swap not possible one or more null elements");
+			return;
+		}
+		if(node1Prev == null) {
+			list.head = node2;
+		} else {
+			node1Prev.setNextNode(node2);
+		}
+		if(node2Prev == null) {
+			list.head = (node1);
+		} else {
+			node2Prev.setNextNode(node1);
+		}
+		Node temp = node1.getNextNode();
+		node1.setNextNode(node2.getNextNode());
+		node2.setNextNode(temp);
+			
+		}
+	//two pointers in parallel 
+	public static Node nthLastNode(LinkedList list, int n) {
+		Node current = null;
+		Node tailSeeker = list.head;
+		int count = 0;
+		while(tailSeeker != null) {
+			tailSeeker = tailSeeker.getNextNode();
+			if( count >= n) {
+				if(current == null) {
+					current = list.head;
+				}
+				current = current.getNextNode();
+			}
+			count++;
+		}
+		return current;
+		
+	}
+	
+	//slow/fast pointers
+	public static Node findMiddle(LinkedList list) {
+		Node fast = list.head;
+		Node slow = list.head;
+		while(fast != null){
+			fast = fast.getNextNode();
+			if(fast != null) {
+				fast = fast.getNextNode();
+				slow = slow.getNextNode();
+			}
+		}
+		return slow;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
