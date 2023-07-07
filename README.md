@@ -1,2 +1,5 @@
-Hacker Rank daily problems
-Leet Code Daily problems
+AlgoMonster practice
+
+Hacker Rank questions
+
+Leet Code questions
