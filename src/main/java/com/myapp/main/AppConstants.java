@@ -1,4 +1,4 @@
-package com.coderscampus.myapp.main;
+package com.myapp.main;
 
 public class AppConstants {
 	

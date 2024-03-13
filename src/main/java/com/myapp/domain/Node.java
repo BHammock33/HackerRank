@@ -1,4 +1,4 @@
-package com.coderscampus.myapp.domain;
+package com.myapp.domain;
 
 public class Node {
 

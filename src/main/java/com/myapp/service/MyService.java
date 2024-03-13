@@ -1,12 +1,14 @@
-package com.coderscampus.myapp.service;
+package com.myapp.service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
-import com.coderscampus.myapp.domain.LinkedList;
-import com.coderscampus.myapp.domain.Node;
+import com.myapp.domain.LinkedList;
+import com.myapp.domain.Node;
 
 public class MyService {
 
@@ -174,6 +176,46 @@ public class MyService {
 			inputMatrix.add(row4);
 			System.out.println(inputMatrix.size());
 			return inputMatrix;
+		}
+		// Left Right Diagonal Sum
+		public Integer diagonalDifference(List<List<Integer>> arr) {
+			Integer leftRight = 0;
+			Integer rightLeft = 0;
+			Integer x = arr.size();
+			for(int i = 0; i<x; i++) {
+				leftRight += arr.get(i).get(i);
+				rightLeft += arr.get(i).get(x-1-i);
+			}
+			Integer difference = Math.abs(leftRight - rightLeft); 
+			System.out.println(difference);
+			return difference;
+		}
+		//Pangrams 3.13.24
+		public String pangrams(String s) {
+			Map<String, Integer> alphabet = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+			for(char ch = 'A'; ch <= 'Z'; ++ch) {
+				alphabet.put(String.valueOf(ch), 0);
+			}
+			Integer x = s.length();
+			for(int i =0; i < x; i++) {
+				char target = s.charAt(i);
+				String targetString = Character.toString(target);
+				if(target != ' ' && targetString != null) {
+					Integer value = alphabet.get(targetString);
+					value = 1 + value;
+					alphabet.replace(targetString, value);
+				}
+			}
+			List<Integer> values = new ArrayList<>(alphabet.values());
+			String response = "Pangram";
+			if(values.contains(0)) {
+				response = "not pangram";
+				System.out.println(response);
+				return response;
+			} else {
+				System.out.println(response);
+				return response;
+			}
 		}
 		
 

@@ -1,11 +1,11 @@
-package com.coderscampus.myapp.main;
+package com.myapp.main;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import com.coderscampus.myapp.domain.LinkedList;
-import com.coderscampus.myapp.service.MyService;
+import com.myapp.domain.LinkedList;
+import com.myapp.service.MyService;
 
 public class HackerRankApplication {
 
@@ -53,6 +53,7 @@ public class HackerRankApplication {
 			i++;
 		}
 		myService.findMiddle(middleList);
+		myService.pangrams("We promptly judged antique ivory buckles for the prize");
 
 	}
 
